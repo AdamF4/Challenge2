@@ -1,0 +1,46 @@
+#!/bin/bash
+
+
+now=$(date +"%T")
+
+mkdir $now
+echo "please enter file name"; read name
+cd $now
+touch $name
+declare -a input
+input=("1")
+
+array_write(){
+for i in "${input[@]}"
+do
+#echo "${input[@]}"
+echo $i >> "${name}"
+done
+}
+
+boop=true
+while ${boop};
+do
+echo "enter words";read word
+if [ $word == "quit" ]
+then
+        #echo "${input[@]}"
+        array_write
+        boop=false
+exit
+else
+        #echo "${word}"
+        input=("${input[@]}" "$word")
+        #echo "${input[@]}"
+fi
+
+done
+
+
+echo "before for loop"
+
+for i in input
+do
+echo "hi"
+
+done
